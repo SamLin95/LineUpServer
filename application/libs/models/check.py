@@ -1,7 +1,7 @@
 from mongoengine import *
 import datetime
 
-class check(Document):
+class Check(Document):
 	resturantName = StringField(required=True)
 	tableId = StringField(required=True)
 	amount = StringField(required=True)

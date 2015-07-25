@@ -8,7 +8,7 @@ class User(Document):
 	email = StringField(required=True)
 
 class ResturantOwner(User):
-	resturant = ReferencedField(Restaurant)
+	resturant = ReferenceField(Restaurant)
 
 class Guest(User):
-	checks = ListField(ReferencedField(Check))
+	checks = ListField(ReferenceField(Check))
