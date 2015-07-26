@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config.from_object('config')
 connect(app.config['DATABASE'])
 manager = LoginManager()
-LoginManager.init_app(app)
+manager.init_app(app)
 
 from mod_auth.controllers import mod_auth
 app.register_blueprint(mod_auth)
