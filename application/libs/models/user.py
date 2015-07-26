@@ -7,6 +7,7 @@ class User(Document):
 	name = StringField(required=True)
 	email = StringField(required=True)
 	password = StringField(required=True)
+	meta = {'allow_inheritance': True}
 	def is_authenticated(self):
 		return True
 	def is_active(self):
