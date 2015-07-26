@@ -1,4 +1,5 @@
 from .. import manager
+from ..libs.models.user import User
 
 @manager.user_loader
 def load_user(userid):
