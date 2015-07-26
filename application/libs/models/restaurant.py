@@ -1,5 +1,5 @@
 from mongoengine import *
-from user import User
+
 
 class Restaurant(Document):
 	name = StringField()
@@ -8,6 +8,8 @@ class Restaurant(Document):
 	totalTableNumber = IntField()
 	tableLeft = IntField()
 	tables = ListField(Table)
+
+from user import User
 
 class Table(Document):
 	restaurantName = StringField(required=True)
