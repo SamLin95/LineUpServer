@@ -5,12 +5,12 @@ from flask_login import LoginManager
 app = Flask(__name__)
 app.config.from_object('config')
 connect(app.config['DATABASE'])
-
-from mod_auth.controllers import mod_auth
-
-app.register_blueprint(mod_auth)
 manager = LoginManager()
 LoginManager.init_app(app)
+
+from mod_auth.controllers import mod_auth
+app.register_blueprint(mod_auth)
+
 
 @app.route("/", methods=["GET"])
 def root():
