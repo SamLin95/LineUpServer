@@ -18,10 +18,14 @@ def login():
         login_user(quert_set.first())
         return "Login Successfull", 200
 
+"""
+todo
+need to implement format checking
+
+"""
 @mod_auth.route("/signup", methods=["POST"])
 def signup():
     req = sign_up_parser.parse_args(strict=True)
-    print req.get("username")
     try:
         new_user = User(username=req.get("username"),
                         password = req.get("password"),
