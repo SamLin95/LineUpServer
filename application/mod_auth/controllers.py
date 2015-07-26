@@ -20,7 +20,7 @@ def login():
 
 @mod_auth.route("/signup", methods=["POST"])
 def signup():
-    req = sign_up_parser.parse_args(request, strict=True)
+    req = sign_up_parser.parse_args(strict=True)
     try:
         new_user = User(username=req.get("username"),
                         password = req.get("password"),
