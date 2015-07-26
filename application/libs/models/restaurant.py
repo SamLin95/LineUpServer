@@ -9,11 +9,9 @@ class Restaurant(Document):
 	tableLeft = IntField()
 	tables = ListField(Table)
 
-from user import User
-
 class Table(Document):
 	restaurantName = StringField(required=True)
 	capacity = IntField(required=True)
 	occupied = IntField(default=0)
 	status = StringField(default="empty")
-	users = ListField(ReferenceField(User), default=[])
+	users = ListField(StringField(), default=[])
