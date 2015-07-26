@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from ..libs.models.user import User
-from flask_login import login_user
+from flask_login import login_user, logout_user
 from parsers import auth_parser, sign_up_parser
 from mongoengine import NotUniqueError
 
@@ -32,6 +32,10 @@ def signup():
     except NotUniqueError as e:
         return str(e), 400
 
+@mod_auth.route("/logout", methods=["POST"])
+def logout():
+    logout_user()
+    return "Logged Out", 200
 
 
 
