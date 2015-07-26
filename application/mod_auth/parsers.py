@@ -1,5 +1,5 @@
 __author__ = 'slin'
-from flask_restful import reqparse
+from flask_restful import reqparse, request
 
 auth_parser = reqparse.RequestParser()
 auth_parser.add_argument("username", type=str)
