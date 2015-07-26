@@ -27,6 +27,7 @@ def signup():
                         email = req.get("email"),
                         name = req.get("name"))
         new_user.save()
+        return "signed up", 200
     except NotUniqueError as e:
         return str(e), 400
 
