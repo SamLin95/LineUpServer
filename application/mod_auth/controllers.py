@@ -1,14 +1,14 @@
 from flask import Blueprint, request
 from ..libs.models.user import User
 from flask_login import login_user
-from parsers import auth_parser, sign_up_parser, request
+from parsers import auth_parser, sign_up_parser
 from mongoengine import NotUniqueError
 
 mod_auth = Blueprint("auth", __name__, url_prefix="/auth")
 
 @mod_auth.route("/login", methods=["GET"])
 def login():
-    req = auth_parser.parse_args(request, strict=True)
+    req = auth_parser.parse_args(strict=True)
     username = req.get("username")
     pw = req.get("password")
     quert_set = User.objects(username = username, password = pw)
