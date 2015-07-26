@@ -1,5 +1,11 @@
 from mongoengine import *
 
+class Table(Document):
+	restaurantName = StringField(required=True)
+	capacity = IntField(required=True)
+	occupied = IntField(default=0)
+	status = StringField(default="empty")
+	users = ListField(StringField(), default=[])
 
 class Restaurant(Document):
 	name = StringField()
@@ -9,9 +15,4 @@ class Restaurant(Document):
 	tableLeft = IntField()
 	tables = ListField(Table)
 
-class Table(Document):
-	restaurantName = StringField(required=True)
-	capacity = IntField(required=True)
-	occupied = IntField(default=0)
-	status = StringField(default="empty")
-	users = ListField(StringField(), default=[])
+
