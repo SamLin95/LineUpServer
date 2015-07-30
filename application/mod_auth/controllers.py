@@ -46,9 +46,9 @@ def signup():
                         email = req.get("email"),
                         name = req.get("name"))
         new_user.save()
-        return "signed up", 200
+        return redirect(url_for('login')), 200
     except NotUniqueError as e:
-        return redirect(url_for("login"), 302)
+        return str(e), 400
 
 @mod_auth.route("/logout", methods=["POST"])
 def logout():
