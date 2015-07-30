@@ -34,10 +34,10 @@ def signup():
         listUserName = []
 
         #Validate if the username already exists
-        for user in User.objects():
-            listUserName.append(user.username)
-        if username in listUserName:
-            return redirect(url_for(signup))
+        # for user in User.objects():
+        #     listUserName.append(user.username)
+        # if username in listUserName:
+        #     return redirect(url_for(signup))
 
 
 
