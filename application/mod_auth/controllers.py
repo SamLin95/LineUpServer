@@ -27,11 +27,11 @@ need to implement format checking
 def signup():
     req = sign_up_parser.parse_args(strict=True)
     try:
-        username = req.get("username")
-        pw = req.get("password")
-        email = req.get("email")
-        name = req.get("name")
-        listUserName = []
+        # username = req.get("username")
+        # pw = req.get("password")
+        # email = req.get("email")
+        # name = req.get("name")
+        # listUserName = []
 
         #Validate if the username already exists
         # for user in User.objects():
