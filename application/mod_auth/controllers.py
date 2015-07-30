@@ -1,4 +1,4 @@
-from flask import Blueprint, request, redirect
+from flask import Blueprint, request, redirect, url_for
 from ..libs.models.user import User
 from flask_login import login_user, logout_user
 from parsers import auth_parser, sign_up_parser
@@ -37,7 +37,7 @@ def signup():
         for user in User.objects():
             listUserName.append(user.username)
         if username in listUserName:
-            return redirect("/signup")
+            return redirect(url_for(signup))
 
 
 
