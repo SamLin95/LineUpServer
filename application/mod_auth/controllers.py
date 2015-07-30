@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, redirect
 from ..libs.models.user import User
 from flask_login import login_user, logout_user
 from parsers import auth_parser, sign_up_parser
@@ -27,6 +27,20 @@ need to implement format checking
 def signup():
     req = sign_up_parser.parse_args(strict=True)
     try:
+        username = req.get("username")
+        pw = req.get("password")
+        email = req.get("email")
+        name = req.get("name")
+        listUserName = []
+
+        #Validate if the username already exists
+        for user in User.objects():
+            listUserName.append(user.username)
+        if username in listUserName:
+            return redirect("/signup")
+
+
+
         new_user = User(username=req.get("username"),
                         password = req.get("password"),
                         email = req.get("email"),
