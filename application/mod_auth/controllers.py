@@ -48,7 +48,7 @@ def signup():
         new_user.save()
         return "signed up", 200
     except NotUniqueError as e:
-        return redirect(url_for(signup)), 400
+        return redirect(url_for(signup))
 
 @mod_auth.route("/logout", methods=["POST"])
 def logout():
