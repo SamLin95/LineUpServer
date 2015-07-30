@@ -46,7 +46,7 @@ def signup():
                         email = req.get("email"),
                         name = req.get("name"))
         new_user.save()
-        return redirect(url_for('auth/login')), 200
+        return redirect('http://52.11.205.176:8080/auth/login'), 200
     except NotUniqueError as e:
         return str(e), 400
 
