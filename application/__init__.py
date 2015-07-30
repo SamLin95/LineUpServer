@@ -13,7 +13,7 @@ app.register_blueprint(mod_auth)
 
 
 @app.route("/", methods=["GET"])
-@login_required
+#@login_required
 def root():
 	return current_user.email, 200
 
