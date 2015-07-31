@@ -1,4 +1,4 @@
-from flask import Blueprint, request, redirect, url_for
+from flask import Blueprint, request, redirect, url_for, flash
 from ..libs.models.user import User
 from flask_login import login_user, logout_user
 from parsers import auth_parser, sign_up_parser
@@ -46,6 +46,7 @@ def signup():
                         email = req.get("email"),
                         name = req.get("name"))
         new_user.save()
+        flash("Please try again")
         return redirect('http://52.11.205.176:8080/auth/login'), 200
     except NotUniqueError as e:
         return str(e), 400
